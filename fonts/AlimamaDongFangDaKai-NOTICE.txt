@@ -1,0 +1,8 @@
+阿里妈妈东方大楷 / Alimama DongFangDaKai
+Copyright: 淘宝（中国）软件有限公司
+官方字体站：https://www.alibabafonts.com/
+官方法律声明：https://www.yuque.com/alimama_ai-font/vfse9w/lwpwexz8c2tf4ebi
+官方使用说明：https://www.yuque.com/alimama_ai-font/vfse9w/fa3agxu74ngvc8h8
+官方原文件：https://fonts.alibabadesign.com/AlimamaDongFangDaKai/AlimamaDongFangDaKai-Regular/AlimamaDongFangDaKai-Regular.woff2
+2026-10-26 下载官方原始WOFF2，未经裁切、转换、重命名内部字体或修改。此字体非OFL；保留全部内部版权信息，仅随本地网页用于标题渲染，不单独销售字体，不声称官方背书。
+SHA256: 31198dbb34f1f86a5e47e50c3e49026a6ef2bcd4753534b4d207422fa4a4f7e0

@@ -1,0 +1,37 @@
+[
+  {
+    "file": "AlimamaDongFangDaKai-Regular.woff2",
+    "family": "Alimama DongFangDaKai",
+    "source": "https://fonts.alibabadesign.com/AlimamaDongFangDaKai/AlimamaDongFangDaKai-Regular/AlimamaDongFangDaKai-Regular.woff2",
+    "webSHA256": "31198dbb34f1f86a5e47e50c3e49026a6ef2bcd4753534b4d207422fa4a4f7e0",
+    "modified": false,
+    "licenseNotice": "AlimamaDongFangDaKai-NOTICE.txt"
+  },
+  {
+    "file": "wenxin-brush.woff2",
+    "family": "Wenxin Brush",
+    "source": "MaShanZheng-Regular.ttf",
+    "commit": "406197b91ff39a93061c2c2eeaee67ddf2ae1f0d",
+    "sourceSHA256": "6d2546bb189c732a8ca29af9e22457b152387d158aa459e4ac2ce1e51788b7fb",
+    "webSHA256": "baf5865af538aa81eb766a9f183726e85f7bcf3f986a9891bd60c16dbedc1877",
+    "glyphCount": 1627
+  },
+  {
+    "file": "wenxin-serif.woff2",
+    "family": "Wenxin Serif",
+    "source": "NotoSerifSC[wght].ttf",
+    "commit": "2e61f4355afd22b801791b0df176065082423b87",
+    "sourceSHA256": "050080d9255a86808f2945bffac582b31ef32bc36411ce29563b4961670c66f9",
+    "webSHA256": "50c3765b1e0a9bcdc6d33b9a066f3c195dad33aed54a49b4cff5409316937dcc",
+    "glyphCount": 1636
+  },
+  {
+    "file": "wenxin-kai.woff2",
+    "family": "Wenxin Kai",
+    "source": "LXGWWenKai-Regular.ttf",
+    "commit": "7ebd0771fda4285299670f83c398f32f32c7bef8",
+    "sourceSHA256": "2d73eea94ad808999d90c0000c239a84a33b09d4bc6ab6c5b8bbf1eda8a7fc8b",
+    "webSHA256": "4906beba60a47faad35e55200bc4bbfd1c9801d71e428a124319fff2172bd564",
+    "glyphCount": 1636
+  }
+]

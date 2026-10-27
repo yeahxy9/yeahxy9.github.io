@@ -1,0 +1,7 @@
+Wenxin Kai: renamed web-only subset of LXGW WenKai Regular
+Upstream: https://github.com/lxgw/LxgwWenKai
+Commit: 7ebd0771fda4285299670f83c398f32f32c7bef8
+Original copyright and SIL OFL 1.1 retained in WenxinKai-OFL.txt.
+Changes: subset to local UI characters, WOFF2 conversion, renamed family and PostScript names.
+Current source and web-subset SHA256 values are recorded in font-sources.json.
+Rebuild: python design/subset-ui-fonts.py (local OFL sources; no UI text sent to a font service).
