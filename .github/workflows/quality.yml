@@ -1,0 +1,48 @@
+name: Website quality checks
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: website-quality
+  cancel-in-progress: true
+jobs:
+  browser-and-performance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: qa
+    env:
+      QA_SITE_ROOT: ..
+    steps:
+      - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: qa/package-lock.json
+      - name: Install audited test tools
+        id: install
+        run: npm ci --ignore-scripts --legacy-peer-deps
+      - name: Install official Chromium runtime
+        run: npx --no-install playwright install --with-deps chromium
+      - name: Browser behavior checks
+        run: npm test
+      - name: Performance report (three runs)
+        if: always() && steps.install.outcome == 'success'
+        run: |
+          export CHROME_PATH="$(node --input-type=module -e 'import {chromium} from "playwright";console.log(chromium.executablePath())')"
+          npm run performance
+      - name: Store test evidence
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: website-quality-evidence
+          path: |
+            qa/reports
+            qa/test-results
+            qa/.lighthouseci
+          retention-days: 7

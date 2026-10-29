@@ -1,0 +1,23 @@
+{
+  "name": "wenxinyi-quality-checks",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "playwright test",
+    "performance": "lhci autorun --config=lighthouserc.cjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.64.1",
+    "@lhci/cli": "0.15.1"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "overrides": {
+    "lighthouse": "13.6.0",
+    "tmp": "0.2.7",
+    "uuid": "11.1.1",
+    "basic-ftp": "6.2.3"
+  }
+}
