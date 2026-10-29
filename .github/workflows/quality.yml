@@ -30,12 +30,26 @@ jobs:
       - name: Install official Chromium runtime
         run: npx --no-install playwright install --with-deps chromium
       - name: Browser behavior checks
+        id: browser
         run: npm test
       - name: Performance report (three runs)
-        if: always() && steps.install.outcome == 'success'
+        if: success() && steps.browser.outcome == 'success'
         run: |
           export CHROME_PATH="$(node --input-type=module -e 'import {chromium} from "playwright";console.log(chromium.executablePath())')"
           npm run performance
+      - name: Store compact results first
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: website-quality-summary
+          path: |
+            qa/reports/results.json
+            qa/reports/lighthouse/*.json
+            qa/test-results/**/error-context.md
+            qa/test-results/**/test-failed-1.png
+            qa/test-results/**/quiz-with-media-still-pending.png
+            qa/test-results/**/*-result.png
+          retention-days: 7
       - name: Store test evidence
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9

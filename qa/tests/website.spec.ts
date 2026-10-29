@@ -1,7 +1,19 @@
 import {test,expect} from '@playwright/test';
+const startupDiagnostics=new WeakMap<object,string[]>();
 
 test.beforeEach(async({page})=>{
+  const diagnostics:string[]=[];
+  startupDiagnostics.set(page,diagnostics);
+  page.on('pageerror',error=>diagnostics.push(`Uncaught: ${error.message}`));
+  page.on('console',message=>{if(message.type()==='error')diagnostics.push(message.text())});
   await page.route('**/*',route=>new URL(route.request().url()).hostname==='127.0.0.1'?route.continue():route.abort());
+});
+test.afterEach(async({page},testInfo)=>{
+  if(testInfo.status!==testInfo.expectedStatus){
+    const details=(startupDiagnostics.get(page)||[]).join('\n');
+    console.log('Browser diagnostics:',details);
+    await testInfo.attach('browser-diagnostics',{body:details,contentType:'text/plain'});
+  }
 });
 
 test('首页可交互时，全量素材仍可在后台未完成',async({page},testInfo)=>{
